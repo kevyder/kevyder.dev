@@ -4,5 +4,5 @@ title:  "Wead"
 description: "A simple and clean Jekyll theme."
 stack: "Jekyll, HTML, CSS and Javascript."
 source: "https://github.com/kevyder/wead"
-order: 4
+order: 5
 ---

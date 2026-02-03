@@ -4,5 +4,5 @@ title:  "Puffly"
 description: "Fun and cute flash messages for your Ruby on Rails application."
 stack: "Ruby and CSS"
 source: "https://github.com/kevyder/puffly"
-order: 4
+order: 6
 ---

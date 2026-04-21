@@ -4,7 +4,9 @@
   <meta name="theme-color" content="#181b19">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Kevin Rodríguez is a passionate software engineer, dedicated eternal learner, and weekend street photographer from Bogotá, Colombia">
-  <meta http-equiv="Refresh" content="url=https://kevyder.dev/">
+  <link rel="preconnect" href="https://www.googletagmanager.com">
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com">
+  <link rel="preload" href="/fonts/superhelio-regular.TTF" as="font" type="font/ttf" crossorigin>
 
   <!-- open graph -->
   <meta property="og:type" content="website">
@@ -41,5 +43,12 @@
 
   <title>{{ site.title }}</title>
   <link rel="stylesheet" href="{{ "/assets/css/styles.css" | prepend: site.baseurl }}">
-  <script src="{{ "/assets/js/app.js" | prepend: site.baseurl }}"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZ0F1BBGJ6"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-NZ0F1BBGJ6');
+  </script>
+  <script src="{{ "/assets/js/app.js" | prepend: site.baseurl }}" defer></script>
 </head>

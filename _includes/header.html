@@ -1,13 +1,13 @@
 <header>
-  <nav class="nav-bar">
-    <ul class="logo">
-      <li><h1 class="title"><span class="ascii-art">(╯°□°）╯</span> <span class="name">Kevin Rodríguez.</span></h1></li>
-    </ul>
-    <ul class="mobile-button">
-      <div class="lines-button"></div>
-    </ul>
-    <ul class="container-options">
-      <li class="option"><a href="https://resume.kevyder.dev/" target="_blank">Resume</a></li>
+  <nav class="nav-bar" aria-label="Main">
+    <div class="logo">
+      <h1 class="title"><span class="ascii-art" aria-hidden="true">(╯°□°）╯</span> <span class="name">Kevin Rodríguez.</span></h1>
+    </div>
+    <button class="mobile-button" type="button" aria-controls="site-navigation" aria-expanded="false" aria-label="Open menu">
+      <span class="lines-button" aria-hidden="true"></span>
+    </button>
+    <ul class="container-options" id="site-navigation">
+      <li class="option"><a href="https://resume.kevyder.dev/" target="_blank" rel="noopener noreferrer">Resume <span class="visually-hidden">(opens in a new tab)</span></a></li>
     </ul>
   </nav>
 </header>

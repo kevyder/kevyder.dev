@@ -2,21 +2,58 @@ document.addEventListener("DOMContentLoaded", () => {
   const mobileButton = document.querySelector(".mobile-button");
   const menuOptions = document.querySelector(".container-options");
   const linesButton = document.querySelector(".lines-button");
+  const menuLinks = document.querySelectorAll(".container-options .option a");
+  const mobileMediaQuery = window.matchMedia("(max-width: 768px)");
+
+  if (!mobileButton || !menuOptions || !linesButton) {
+    return;
+  }
+
+  const closeMenu = ({ returnFocus = false } = {}) => {
+    menuOptions.classList.remove("active");
+    linesButton.classList.remove("close-lines");
+    mobileButton.setAttribute("aria-expanded", "false");
+    mobileButton.setAttribute("aria-label", "Open menu");
+    document.body.style.overflow = "";
+
+    if (returnFocus) {
+      mobileButton.focus();
+    }
+  };
+
+  const openMenu = () => {
+    menuOptions.classList.add("active");
+    linesButton.classList.add("close-lines");
+    mobileButton.setAttribute("aria-expanded", "true");
+    mobileButton.setAttribute("aria-label", "Close menu");
+
+    // Prevent scrolling when menu is open on small screens.
+    document.body.style.overflow = mobileMediaQuery.matches ? "hidden" : "";
+
+    if (mobileMediaQuery.matches) {
+      menuLinks[0]?.focus();
+    }
+  };
+
+  const syncMenuState = () => {
+    if (!mobileMediaQuery.matches) {
+      closeMenu();
+    }
+  };
 
   mobileButton.addEventListener("click", () => {
-    menuOptions.classList.toggle("active");
-    linesButton.classList.toggle("close-lines");
+    if (menuOptions.classList.contains("active")) {
+      closeMenu();
+      return;
+    }
 
-    // Prevent scrolling when menu is open
-    document.body.style.overflow = menuOptions.classList.contains("active") ? "hidden" : "";
+    openMenu();
   });
 
   // Close menu when clicking on a link
-  document.querySelectorAll(".container-options .option a").forEach(link => {
+  menuLinks.forEach((link) => {
     link.addEventListener("click", () => {
-      menuOptions.classList.remove("active");
-      linesButton.classList.remove("close-lines");
-      document.body.style.overflow = "";
+      closeMenu();
     });
   });
 
@@ -25,9 +62,16 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!event.target.closest(".mobile-button") &&
       !event.target.closest(".container-options") &&
       menuOptions.classList.contains("active")) {
-      menuOptions.classList.remove("active");
-      linesButton.classList.remove("close-lines");
-      document.body.style.overflow = "";
+      closeMenu();
     }
   });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menuOptions.classList.contains("active")) {
+      closeMenu({ returnFocus: true });
+    }
+  });
+
+  mobileMediaQuery.addEventListener("change", syncMenuState);
+  syncMenuState();
 });

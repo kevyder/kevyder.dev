@@ -7,5 +7,5 @@ description:
     Hello World!, I'm Kevin Rodríguez.
     A passionate <span class="accentuated">software engineer</span>,
     dedicated <span class="accentuated">eternal learner</span>,
-    and weekend street photographer from Bogotá, Colombia.
+    and weekend street photographer from Bogotá D.C - Colombia.
 ---

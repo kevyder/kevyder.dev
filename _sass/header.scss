@@ -38,12 +38,20 @@ header {
   display: none;
   cursor: pointer;
   z-index: 100;
+  border: 0;
+  background: transparent;
+  color: inherit;
 
   @media (max-width: 768px) {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 44px;
+    min-height: 44px;
   }
 }
 .lines-button {
+  display: inline-block;
   height: 3px;
   width: 30px;
   position: relative;
@@ -103,6 +111,7 @@ header {
   justify-content: space-around;
 
   @media (max-width: 768px) {
+    display: none;
     position: fixed;
     top: 0;
     right: -100%;
@@ -116,12 +125,14 @@ header {
     transition: right 0.3s ease-in-out;
 
     &.active {
+      display: flex;
       right: 0;
     }
   }
 }
 .option {
   a {
+    display: inline-block;
     margin: .5rem;
     font-size: 1.2rem;
     color: #ffffff;

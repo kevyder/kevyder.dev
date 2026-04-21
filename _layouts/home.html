@@ -2,8 +2,11 @@
 <html dir="ltr" lang="en">
   {% include head.html %}
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
   {% include header.html %}
-  {% include main-section.html %}
+  <main id="main-content" tabindex="-1">
+    {% include main-section.html %}
+  </main>
 </body>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-NZ0F1BBGJ6"></script>

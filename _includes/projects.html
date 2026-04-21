@@ -1,14 +1,14 @@
-<div class="projects">
-  <h2 class="projects-title">Featured Projects:</h2>
+<section class="projects" aria-labelledby="projects-title">
+  <h2 class="projects-title" id="projects-title">Featured Projects:</h2>
   <div id="project-wrapper">
     {% assign projects = site.projects | sort: 'order' %}
     {% for project in projects %}
-      <a class="project_link" target="_blank" href="{{ project.source }}">
+      <a class="project_link" target="_blank" rel="noopener noreferrer" href="{{ project.source }}" aria-labelledby="project-title-{{ forloop.index }}" aria-describedby="project-stack-{{ forloop.index }}">
         <div class="project">
-          <h3 class="project_title">{{ project.title }}: {{ project.description }}</h3>
-          <p class="project_stack">Stack: {{ project.stack }}</p>
+          <h3 class="project_title" id="project-title-{{ forloop.index }}">{{ project.title }}: {{ project.description }}</h3>
+          <p class="project_stack" id="project-stack-{{ forloop.index }}">Stack: {{ project.stack }} <span class="visually-hidden">Opens in a new tab.</span></p>
         </div>
       </a>
     {% endfor %}
   </div>
-</div>
+</section>

@@ -1,8 +1,0 @@
----
-layout: project
-title:  "Wead"
-description: "A simple and clean Jekyll theme."
-stack: "Jekyll, HTML, CSS and Javascript."
-source: "https://github.com/kevyder/wead"
-order: 5
----
